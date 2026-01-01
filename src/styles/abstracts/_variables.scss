@@ -1,0 +1,25 @@
+$col-black: #000000;
+$col-white: #ffffff;
+$col-oxblood: #690A0A;
+$col-offwhite: #F9F4F0;
+$col-beige: #E5C6B3;
+$col-dark: #2F2F2F;
+$col-yellow: #F4C542;
+$col-teal: #2AA39A;
+$col-coral: #E97A67;
+$col-cream: #F9F4F0;
+$heading-text: #2F2F2F;
+
+// header variables
+$header-gap: toRem(20);
+$header-container-padding: toRem(20);
+$header-menu-padding: toRem(32);
+$header-section-padding: toRem(80);
+$header-cubic-default: cubic-bezier(0.4, 0, 0.2, 1);
+
+%mg_au {
+  margin: 0 auto;
+}
+%ta_center {
+  text-align: center;
+}
