@@ -1,4 +1,3 @@
-import { Sora, Lora } from "next/font/google";
 import localFont from 'next/font/local';
 import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';

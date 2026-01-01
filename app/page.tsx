@@ -1,6 +1,6 @@
-import DummyComponent from "@/src/components/DummyComponent";
+import Hero from "@/src/components/Hero";
 
 export default function Home() {
-  return <DummyComponent />;
+  return <Hero />;
 }
 
