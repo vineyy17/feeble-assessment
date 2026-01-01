@@ -1,0 +1,113 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.ctaContainer {
+  width: toRem(736);
+  margin-top: toRem(24);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainText {
+  font-size: toRem(64);
+  font-weight: 800;
+  line-height: 120%;
+  letter-spacing: -2%;
+  color: $text-dark;
+  text-align: center;
+  margin: 0;
+  
+  .blueText {
+    color: $hero-blue;
+  }
+}
+
+.subText {
+  width: toRem(586);
+  padding-top: toRem(24);
+  font-weight: 500;
+  font-size: toRem(18);
+  line-height: 130%;
+  letter-spacing: -2%;
+  color: $col-black;
+  text-align: center;
+  margin: 0;
+}
+
+.buttonsContainer {
+  margin-top: toRem(48);
+  display: flex;
+  gap: toRem(12);
+  align-items: center;
+  justify-content: center;
+}
+
+.getStartedButton {
+  border: none;
+  outline: none;
+  border-radius: toRem(50);
+  padding: toRem(12) toRem(20);
+  background-color: $hero-blue;
+  color: $col-white;
+  font-size: toRem(18);
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -2%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    background-color: darken($hero-blue, 5%);
+    transform: translateY(-2px);
+    box-shadow: 0 toRem(8) toRem(16) 0 rgba(0, 122, 255, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.macButton {
+  background: transparent;
+  border: toRem(0.7) solid $border-gray;
+  border-radius: toRem(50);
+  padding: toRem(12) toRem(20);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: toRem(12);
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  
+  img {
+    width: toRem(18.43);
+    height: toRem(22);
+    object-fit: contain;
+  }
+  
+  .stroke {
+    width: toRem(0.5);
+    height: toRem(18);
+    background-color: $border-gray;
+  }
+  
+  span {
+    font-size: toRem(18);
+    line-height: 120%;
+    letter-spacing: -2%;
+    color: $text-dark;
+  }
+  
+  &:hover {
+    border-color: darken($border-gray, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 toRem(4) toRem(12) 0 rgba(108, 120, 143, 0.2);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+

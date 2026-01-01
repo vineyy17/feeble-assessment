@@ -5,13 +5,9 @@ let lenisInstance: Lenis | null = null;
 export default function scroll(): Lenis {
   const lenis = new Lenis({
     wrapper: window,
-    lerp: 0.25,
+    lerp: 0.07,
     smoothWheel: true,
-    easing: (t) => 1 - Math.pow(1 - t, 3), 
-    duration: 0.8,
-    orientation: 'vertical',
-    gestureOrientation: 'vertical',
-    touchMultiplier: 1.5,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
   });
 
   lenisInstance = lenis;
