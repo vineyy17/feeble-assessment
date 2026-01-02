@@ -22,11 +22,15 @@
       toRem(300) auto,
       100% auto;
     min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   @include media('<=phone-tab') {
     background-size: toRem(200) auto;
     min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 }
 
