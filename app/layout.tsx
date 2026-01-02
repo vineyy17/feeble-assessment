@@ -1,4 +1,5 @@
 import localFont from 'next/font/local';
+import type { Metadata } from 'next';
 import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';
 import "@/src/styles/main.scss";
@@ -31,6 +32,15 @@ const generalSans = localFont({
   adjustFontFallback: false,
 });
 
+export const metadata: Metadata = {
+  title: 'Feeble - iMessage Automation for Teams and AI Workflows',
+  description: 'Coup lets you, your team, or AI workflows send iMessages directly from your phone number, running securely on your Mac or Mac Mini.',
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
+};
 
 export default function RootLayout({
   children,

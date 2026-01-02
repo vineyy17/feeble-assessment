@@ -6,8 +6,7 @@
   height: 100vh;
   background-color: $hero-bg;
   background-image: 
-    url('../../assets/images/blur-bg.png'),
-    url('../../assets/images/clouds.png');
+    url('../../assets/blur-bg.png');
   background-repeat: no-repeat, no-repeat;
   background-position: top left, bottom center;
   background-size: 
@@ -17,6 +16,49 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+
+  @include media('<=tablet') {
+    background-size: 
+      toRem(300) auto,
+      100% auto;
+    min-height: 100vh;
+  }
+
+  @include media('<=phone-tab') {
+    background-size: toRem(200) auto;
+    min-height: 100vh;
+  }
+}
+
+.clouds {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+  
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: bottom center;
+  }
+
+  @include media('<=tablet') {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include media('<=phone-tab') {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 
 .navWrapper {
@@ -24,6 +66,14 @@
   display: flex;
   justify-content: center;
   width: 100%;
+
+  @include media('<=tablet') {
+    margin-top: toRem(32);
+  }
+
+  @include media('<=phone-tab') {
+    margin-top: toRem(24);
+  }
 }
 
 .badgeWrapper {
@@ -31,6 +81,14 @@
   display: flex;
   justify-content: center;
   width: 100%;
+
+  @include media('<=tablet') {
+    margin-top: toRem(40);
+  }
+
+  @include media('<=phone-tab') {
+    margin-top: toRem(32);
+  }
 }
 
 .scrollIndicator {
@@ -42,6 +100,16 @@
   flex-direction: column;
   align-items: center;
   gap: toRem(8);
+
+  @include media('<=tablet') {
+    bottom: toRem(30);
+    gap: toRem(6);
+  }
+
+  @include media('<=phone-tab') {
+    bottom: toRem(20);
+    gap: toRem(4);
+  }
 }
 
 .scrollText {
@@ -52,6 +120,14 @@
   text-align: center;
   margin: 0;
   color: $text-dark;
+
+  @include media('<=tablet') {
+    font-size: toRem(14);
+  }
+
+  @include media('<=phone-tab') {
+    font-size: toRem(12);
+  }
 }
 
 .arrowWrapper {
@@ -82,7 +158,21 @@
   width: 100%;
   height: 60%;
   pointer-events: none;
-  overflow: hidden;
+  overflow: visible;
+
+  @include media('<=tablet') {
+    top: auto;
+    bottom: toRem(100);
+    height: auto;
+    overflow: visible;
+  }
+
+  @include media('<=phone-tab') {
+    top: auto;
+    bottom: toRem(80);
+    height: auto;
+    overflow: visible;
+  }
 }
 
 .upperBirdLeftTop,
@@ -125,6 +215,22 @@
   left: toRem(210);
   width: toRem(37.36);
   height: toRem(12.96);
+
+  @include media('<=tablet') {
+    top: auto;
+    bottom: toRem(100);
+    left: toRem(100);
+    width: toRem(24);
+    height: toRem(8);
+  }
+
+  @include media('<=phone-tab') {
+    top: auto;
+    bottom: toRem(80);
+    left: toRem(40);
+    width: toRem(18);
+    height: toRem(6);
+  }
 }
 
 .upperBirdLeftBottom {
@@ -133,6 +239,22 @@
   left: toRem(350);
   width: toRem(37.36);
   height: toRem(13.96);
+
+  @include media('<=tablet') {
+    top: auto;
+    bottom: toRem(70);
+    left: toRem(180);
+    width: toRem(24);
+    height: toRem(9);
+  }
+
+  @include media('<=phone-tab') {
+    top: auto;
+    bottom: toRem(50);
+    left: toRem(80);
+    width: toRem(18);
+    height: toRem(7);
+  }
 }
 
 .upperBirdLeftBottomAnimated {
@@ -140,6 +262,22 @@
   left: toRem(350);
   width: toRem(37.36);
   height: toRem(13.96);
+
+  @include media('<=tablet') {
+    top: auto;
+    bottom: toRem(70);
+    left: toRem(180);
+    width: toRem(24);
+    height: toRem(9);
+  }
+
+  @include media('<=phone-tab') {
+    top: auto;
+    bottom: toRem(50);
+    left: toRem(80);
+    width: toRem(18);
+    height: toRem(7);
+  }
 }
 
 .upperBirdRightTop {
@@ -148,6 +286,22 @@
   right: toRem(300);
   width: toRem(37.36);
   height: toRem(13.96);
+
+  @include media('<=tablet') {
+    top: auto;
+    bottom: toRem(90);
+    right: toRem(120);
+    width: toRem(24);
+    height: toRem(9);
+  }
+
+  @include media('<=phone-tab') {
+    top: auto;
+    bottom: toRem(70);
+    right: toRem(40);
+    width: toRem(18);
+    height: toRem(7);
+  }
 }
 
 .upperBirdRightBottom {
@@ -156,6 +310,22 @@
   right: toRem(275);
   width: toRem(37.36);
   height: toRem(13.96);
+
+  @include media('<=tablet') {
+    top: auto;
+    bottom: toRem(50);
+    right: toRem(110);
+    width: toRem(24);
+    height: toRem(9);
+  }
+
+  @include media('<=phone-tab') {
+    top: auto;
+    bottom: toRem(30);
+    right: toRem(30);
+    width: toRem(18);
+    height: toRem(7);
+  }
 }
 
 .upperBirdRightBottomAnimated {
@@ -163,6 +333,22 @@
   right: toRem(275);
   width: toRem(37.36);
   height: toRem(13.96);
+
+  @include media('<=tablet') {
+    top: auto;
+    bottom: toRem(50);
+    right: toRem(110);
+    width: toRem(24);
+    height: toRem(9);
+  }
+
+  @include media('<=phone-tab') {
+    top: auto;
+    bottom: toRem(30);
+    right: toRem(30);
+    width: toRem(18);
+    height: toRem(7);
+  }
 }
 
 .birdsContainer {
@@ -173,6 +359,14 @@
   height: toRem(521.74);
   pointer-events: none;
   overflow: hidden;
+
+  @include media('<=tablet') {
+    height: toRem(400);
+  }
+
+  @include media('<=phone-tab') {
+    height: toRem(300);
+  }
 }
 
 .birdOne,
@@ -194,6 +388,20 @@
   left: toRem(250);
   width: toRem(93.38);
   height: toRem(66.75);
+
+  @include media('<=tablet') {
+    bottom: toRem(40);
+    left: toRem(120);
+    width: toRem(55);
+    height: toRem(40);
+  }
+
+  @include media('<=phone-tab') {
+    bottom: toRem(30);
+    left: toRem(40);
+    width: toRem(40);
+    height: toRem(29);
+  }
 }
 
 .birdFour {
@@ -202,6 +410,20 @@
   left: toRem(480);
   width: toRem(77.74);
   height: toRem(46.99);
+
+  @include media('<=tablet') {
+    bottom: toRem(80);
+    left: toRem(280);
+    width: toRem(48);
+    height: toRem(29);
+  }
+
+  @include media('<=phone-tab') {
+    bottom: toRem(60);
+    left: toRem(120);
+    width: toRem(36);
+    height: toRem(22);
+  }
 }
 
 .birdFive {
@@ -210,6 +432,20 @@
   right: toRem(390);
   width: toRem(118.21);
   height: toRem(44.38);
+
+  @include media('<=tablet') {
+    bottom: toRem(40);
+    right: toRem(200);
+    width: toRem(72);
+    height: toRem(27);
+  }
+
+  @include media('<=phone-tab') {
+    bottom: toRem(30);
+    right: toRem(80);
+    width: toRem(52);
+    height: toRem(19);
+  }
 }
 
 .birdTwo {
@@ -218,6 +454,20 @@
   right: toRem(120);
   width: toRem(118.93);
   height: toRem(91.99);
+
+  @include media('<=tablet') {
+    bottom: toRem(40);
+    right: toRem(60);
+    width: toRem(72);
+    height: toRem(56);
+  }
+
+  @include media('<=phone-tab') {
+    bottom: toRem(30);
+    right: toRem(20);
+    width: toRem(52);
+    height: toRem(40);
+  }
 }
 
 .flyingBirdLeft {
@@ -228,11 +478,24 @@
   height: toRem(125);
   z-index: 1;
   opacity: 1;
+  visibility: hidden;
   
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  @include media('<=tablet') {
+    bottom: toRem(200);
+    width: toRem(100);
+    height: toRem(100);
+  }
+
+  @include media('<=phone-tab') {
+    bottom: toRem(150);
+    width: toRem(80);
+    height: toRem(80);
   }
 }
 
@@ -244,11 +507,24 @@
   height: toRem(125);
   z-index: 1;
   opacity: 1;
+  visibility: hidden;
   
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  @include media('<=tablet') {
+    bottom: toRem(120);
+    width: toRem(100);
+    height: toRem(100);
+  }
+
+  @include media('<=phone-tab') {
+    bottom: toRem(90);
+    width: toRem(80);
+    height: toRem(80);
   }
 }
 

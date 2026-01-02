@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from '@/src/styles/components/CTA.module.scss';
-import appleIcon from '@/src/assets/icons/apple.png';
+import appleIcon from '@/src/assets/apple.png';
 
 export default function CTA() {
   return (

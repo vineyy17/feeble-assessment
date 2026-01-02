@@ -11,17 +11,108 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+
+  @include media('<=tablet') {
+    width: 90%;
+    padding: toRem(12) toRem(14);
+    padding-left: toRem(16);
+  }
+
+  @include media('<=phone-tab') {
+    width: 95%;
+    padding: toRem(10) toRem(12);
+    padding-left: toRem(14);
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: toRem(24);
+    overflow: hidden;
+  }
 }
 
 .logo {
   width: toRem(96.94);
   height: toRem(30);
   cursor: pointer;
+  text-decoration: none;
+  display: block;
   
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  @include media('<=tablet') {
+    width: toRem(80);
+    height: toRem(25);
+  }
+
+  @include media('<=phone-tab') {
+    width: toRem(70);
+    height: toRem(22);
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: toRem(24);
+  height: toRem(24);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+  position: relative;
+
+  @include media('<=phone-tab') {
+    display: flex;
+    position: absolute;
+    right: toRem(14);
+    top: toRem(10);
+    transform: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: toRem(2);
+  background-color: $text-dark;
+  border-radius: toRem(2);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-origin: center;
+
+  &:nth-child(1) {
+    transform: translateY(0) rotate(0);
+  }
+
+  &:nth-child(2) {
+    opacity: 1;
+  }
+
+  &:nth-child(3) {
+    transform: translateY(0) rotate(0);
+  }
+
+  &.active {
+    &:nth-child(1) {
+      transform: translateY(toRem(8)) rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    &:nth-child(3) {
+      transform: translateY(toRem(-8)) rotate(-45deg);
+    }
   }
 }
 
@@ -43,6 +134,18 @@
       color: $hero-blue;
       transform: translateY(-1px);
     }
+  }
+
+  @include media('<=tablet') {
+    gap: toRem(24);
+    
+    a {
+      font-size: toRem(12);
+    }
+  }
+
+  @include media('<=phone-tab') {
+    display: none;
   }
 }
 
@@ -68,6 +171,104 @@
   
   &:active {
     transform: translateY(0);
+  }
+
+  @include media('<=tablet') {
+    padding: toRem(9) toRem(16);
+    font-size: toRem(12);
+  }
+
+  @include media('<=phone-tab') {
+    display: none;
+  }
+}
+
+.menuContent {
+  display: none;
+
+  @include media('<=phone-tab') {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                padding 0.4s ease;
+    padding: 0;
+    margin-top: toRem(8);
+  }
+
+  &.menuOpen {
+    @include media('<=phone-tab') {
+      max-height: toRem(500);
+      opacity: 1;
+      padding-top: toRem(16);
+      padding-bottom: toRem(16);
+    }
+  }
+}
+
+.mobileContactButton {
+  display: none;
+
+  @include media('<=phone-tab') {
+    display: flex;
+    width: 100%;
+    padding: toRem(12) toRem(20);
+    border-radius: toRem(50);
+    border: none;
+    outline: none;
+    background-color: $hero-blue;
+    color: $col-white;
+    font-weight: 600;
+    font-size: toRem(14);
+    line-height: 120%;
+    letter-spacing: -2%;
+    cursor: pointer;
+    justify-content: center;
+    margin-bottom: toRem(16);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      background-color: darken($hero-blue, 5%);
+      transform: translateY(-1px);
+      box-shadow: 0 toRem(4) toRem(12) 0 rgba(0, 122, 255, 0.3);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+.mobileLinks {
+  display: none;
+
+  @include media('<=phone-tab') {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: toRem(16);
+    width: 100%;
+    
+    a {
+      font-size: toRem(14);
+      padding: toRem(8) 0;
+      width: 100%;
+      color: $text-dark;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease, padding-left 0.3s ease;
+      
+      &:hover {
+        color: $hero-blue;
+        padding-left: toRem(8);
+      }
+    }
   }
 }
 

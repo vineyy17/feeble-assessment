@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from '@/src/styles/components/Badge.module.scss';
-import optionsIcon from '@/src/assets/icons/options.png';
+import optionsIcon from '@/src/assets/options.png';
 
 export default function Badge() {
   return (
