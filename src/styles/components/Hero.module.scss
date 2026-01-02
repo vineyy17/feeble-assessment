@@ -3,7 +3,7 @@
 
 .hero {
   width: 100%;
-  height: 121vh;
+  height: 100vh;
   background-color: $hero-bg;
   background-image: 
     url('../../assets/images/blur-bg.png'),
@@ -20,14 +20,14 @@
 }
 
 .navWrapper {
-  margin-top: toRem(40);
+  margin-top: toRem(20);
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
 .badgeWrapper {
-  margin-top: toRem(64);
+  margin-top: toRem(34);
   display: flex;
   justify-content: center;
   width: 100%;
@@ -46,7 +46,7 @@
 
 .scrollText {
   font-weight: 600;
-  font-size: toRem(18);
+  font-size: toRem(16);
   line-height: 130%;
   letter-spacing: -2%;
   text-align: center;
@@ -55,8 +55,8 @@
 }
 
 .arrowWrapper {
-  width: toRem(32);
-  height: toRem(32);
+  width: toRem(28);
+  height: toRem(28);
   animation: bounce 2s infinite;
   
   img {
@@ -72,6 +72,183 @@
   }
   50% {
     transform: translateY(toRem(8));
+  }
+}
+
+.upperBirdsContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.upperBirdLeftTop,
+.upperBirdRightTop {
+  opacity: 0;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.upperBirdLeftBottom,
+.upperBirdRightBottom {
+  opacity: 1;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.upperBirdLeftBottomAnimated,
+.upperBirdRightBottomAnimated {
+  position: absolute;
+  opacity: 0;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.upperBirdLeftTop {
+  position: absolute;
+  top: toRem(195);
+  left: toRem(210);
+  width: toRem(37.36);
+  height: toRem(12.96);
+}
+
+.upperBirdLeftBottom {
+  position: absolute;
+  top: toRem(235);
+  left: toRem(350);
+  width: toRem(37.36);
+  height: toRem(13.96);
+}
+
+.upperBirdLeftBottomAnimated {
+  top: toRem(235);
+  left: toRem(350);
+  width: toRem(37.36);
+  height: toRem(13.96);
+}
+
+.upperBirdRightTop {
+  position: absolute;
+  top: toRem(215);
+  right: toRem(300);
+  width: toRem(37.36);
+  height: toRem(13.96);
+}
+
+.upperBirdRightBottom {
+  position: absolute;
+  top: toRem(330);
+  right: toRem(275);
+  width: toRem(37.36);
+  height: toRem(13.96);
+}
+
+.upperBirdRightBottomAnimated {
+  top: toRem(330);
+  right: toRem(275);
+  width: toRem(37.36);
+  height: toRem(13.96);
+}
+
+.birdsContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: toRem(521.74);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.birdOne,
+.birdFour,
+.birdFive,
+.birdTwo {
+  opacity: 0;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.birdOne {
+  position: absolute;
+  bottom: toRem(50);
+  left: toRem(250);
+  width: toRem(93.38);
+  height: toRem(66.75);
+}
+
+.birdFour {
+  position: absolute;
+  bottom: toRem(100);
+  left: toRem(480);
+  width: toRem(77.74);
+  height: toRem(46.99);
+}
+
+.birdFive {
+  position: absolute;
+  bottom: toRem(50);
+  right: toRem(390);
+  width: toRem(118.21);
+  height: toRem(44.38);
+}
+
+.birdTwo {
+  position: absolute;
+  bottom: toRem(50);
+  right: toRem(120);
+  width: toRem(118.93);
+  height: toRem(91.99);
+}
+
+.flyingBirdLeft {
+  position: absolute;
+  bottom: toRem(256);
+  left: toRem(-200);
+  width: toRem(125);
+  height: toRem(125);
+  z-index: 1;
+  opacity: 1;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.flyingBirdRight {
+  position: absolute;
+  bottom: toRem(160);
+  right: toRem(-200);
+  width: toRem(125);
+  height: toRem(125);
+  z-index: 1;
+  opacity: 1;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }
 

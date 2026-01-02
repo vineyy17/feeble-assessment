@@ -5,10 +5,10 @@ import appleIcon from '@/src/assets/icons/apple.png';
 export default function CTA() {
   return (
     <div className={styles.ctaContainer}>
-      <h1 className={styles.mainText}>
+      <h1 className={styles.mainText} data-animation='blurIn'>
         <span className={styles.blueText}>iMessage</span> Automation for Teams and AI Workflows.
       </h1>
-      <p className={styles.subText}>
+      <p className={styles.subText} data-animation='h'>
         Coup lets you, your team, or AI workflows send iMessages directly from your phone number, running securely on your Mac or Mac Mini.
       </p>
       <div className={styles.buttonsContainer}>

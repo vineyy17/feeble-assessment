@@ -1,4 +1,3 @@
-import Splitting from 'splitting';
 import { IO } from './observe';
 import gsap from 'gsap';
 
@@ -9,27 +8,34 @@ interface SplittingResult {
 }
 
 export const split = (): void => {
-  const blurredText = document.querySelectorAll<HTMLElement>(
-    "[data-animation='blurIn']"
-  );
-  const opacIn = document.querySelectorAll<HTMLElement>(
-    "[data-animation='opacIn']"
-  );
-  const custom = document.querySelectorAll<HTMLElement>(
-    "[data-animation='custom']"
-  );
-  const bCustom = document.querySelectorAll<HTMLElement>(
-    "[data-animation='bouncecustom']"
-  );
-  const hCustom = document.querySelectorAll<HTMLElement>(
-    "[data-animation='hCustom']"
-  );
-  const H = document.querySelectorAll<HTMLElement>("[data-animation='h']");
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return;
+  }
 
-  const p = document.querySelectorAll<HTMLElement>("[data-animation='p']");
-  const B = document.querySelectorAll<HTMLElement>("[data-animation='bounce']");
+  import('splitting').then((SplittingModule) => {
+    const Splitting = SplittingModule.default;
+    
+    const blurredText = document.querySelectorAll<HTMLElement>(
+      "[data-animation='blurIn']"
+    );
+    const opacIn = document.querySelectorAll<HTMLElement>(
+      "[data-animation='opacIn']"
+    );
+    const custom = document.querySelectorAll<HTMLElement>(
+      "[data-animation='custom']"
+    );
+    const bCustom = document.querySelectorAll<HTMLElement>(
+      "[data-animation='bouncecustom']"
+    );
+    const hCustom = document.querySelectorAll<HTMLElement>(
+      "[data-animation='hCustom']"
+    );
+    const H = document.querySelectorAll<HTMLElement>("[data-animation='h']")
 
-  p.forEach((item) => {
+    const p = document.querySelectorAll<HTMLElement>("[data-animation='p']");
+    const B = document.querySelectorAll<HTMLElement>("[data-animation='bounce']");
+
+    p.forEach((item) => {
     const line = Splitting({
       target: item,
       by: 'lines',
@@ -63,9 +69,21 @@ export const split = (): void => {
         ease: 'easeOut',
       });
     });
-  });
+    });
 
-  blurredText.forEach((item) => {
+    blurredText.forEach((item) => {
+    const originalHTML = item.innerHTML;
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = originalHTML;
+    const originalSpans = Array.from(tempDiv.querySelectorAll('span[class*="blueText"], span[class*="blue"]'));
+    const spanMap = new Map<string, string>();
+    originalSpans.forEach((span) => {
+      const text = span.textContent?.trim();
+      if (text) {
+        spanMap.set(text, span.outerHTML);
+      }
+    });
+
     const line = Splitting({
       target: item,
       by: 'lines',
@@ -73,10 +91,27 @@ export const split = (): void => {
     line.forEach((splitResult) => {
       const wrappedLines = splitResult.words
         .map(
-          (wordsArr) => `
+          (wordsArr) => {
+            const wordText = wordsArr.textContent?.trim();
+            let wordHTML = wordsArr.outerHTML;
+            
+            if (wordText && spanMap.has(wordText)) {
+              const originalSpanHTML = spanMap.get(wordText)!;
+              if (!wordHTML.includes('blueText') && !wordHTML.includes('blue')) {
+                const hasWordClass = wordsArr.classList.contains('word');
+                if (hasWordClass) {
+                  wordHTML = `<span class="word">${originalSpanHTML}</span>`;
+                } else {
+                  wordHTML = originalSpanHTML;
+                }
+              }
+            }
+            
+            return `
                        <span className="word_wrap">
-                             ${wordsArr.outerHTML}
-                        </span>`
+                             ${wordHTML}
+                        </span>`;
+          }
         )
         .join('');
       splitResult.el.innerHTML = wrappedLines;
@@ -101,9 +136,9 @@ export const split = (): void => {
         ease: 'power1.inOut',
       });
     });
-  });
+    });
 
-  opacIn.forEach((item) => {
+    opacIn.forEach((item) => {
     Splitting({
       target: item,
       by: 'chars',
@@ -123,9 +158,9 @@ export const split = (): void => {
         ease: 'power1.inOut',
       });
     });
-  });
+    });
 
-  custom.forEach((item) => {
+    custom.forEach((item) => {
     Splitting({
       target: item,
       by: 'chars',
@@ -146,9 +181,9 @@ export const split = (): void => {
         ease: 'easeOut',
       });
     });
-  });
+    });
 
-  hCustom.forEach((item) => {
+    hCustom.forEach((item) => {
     // Hide the element itself immediately to prevent flash
     gsap.set(item, { 
       opacity: 0, 
@@ -213,9 +248,9 @@ export const split = (): void => {
     
     // Small delay to ensure DOM is ready
     setTimeout(checkAndAnimate, 50);
-  });
+    });
 
-  H.forEach((item) => {
+    H.forEach((item) => {
     Splitting({
       target: item,
       by: 'chars',
@@ -236,9 +271,9 @@ export const split = (): void => {
         ease: 'easeOut',
       });
     });
-  });
+    });
 
-  B.forEach((item) => {
+    B.forEach((item) => {
     Splitting({
       target: item,
       by: 'chars',
@@ -261,9 +296,9 @@ export const split = (): void => {
         }
       );
     });
-  });
+    });
 
-  bCustom.forEach((item) => {
+    bCustom.forEach((item) => {
     Splitting({
       target: item,
       by: 'chars',
@@ -286,6 +321,7 @@ export const split = (): void => {
         }
       );
     });
+  });
   });
 };
 

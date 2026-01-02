@@ -2,15 +2,15 @@
 @import '../abstracts/mixins';
 
 .ctaContainer {
-  width: toRem(736);
-  margin-top: toRem(24);
+  width: toRem(586);
+  margin-top: toRem(16);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .mainText {
-  font-size: toRem(64);
+  font-size: toRem(48);
   font-weight: 800;
   line-height: 120%;
   letter-spacing: -2%;
@@ -25,9 +25,9 @@
 
 .subText {
   width: toRem(586);
-  padding-top: toRem(24);
+  padding-top: toRem(16);
   font-weight: 500;
-  font-size: toRem(18);
+  font-size: toRem(16);
   line-height: 130%;
   letter-spacing: -2%;
   color: $col-black;
@@ -36,7 +36,7 @@
 }
 
 .buttonsContainer {
-  margin-top: toRem(48);
+  margin-top: toRem(24);
   display: flex;
   gap: toRem(12);
   align-items: center;
@@ -50,7 +50,7 @@
   padding: toRem(12) toRem(20);
   background-color: $hero-blue;
   color: $col-white;
-  font-size: toRem(18);
+  font-size: toRem(14);
   font-weight: 600;
   line-height: 120%;
   letter-spacing: -2%;
@@ -82,8 +82,8 @@
   transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   
   img {
-    width: toRem(18.43);
-    height: toRem(22);
+    width: toRem(16.43);
+    height: toRem(18);
     object-fit: contain;
   }
   
@@ -94,7 +94,7 @@
   }
   
   span {
-    font-size: toRem(18);
+    font-size: toRem(14);
     line-height: 120%;
     letter-spacing: -2%;
     color: $text-dark;
