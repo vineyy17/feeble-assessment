@@ -197,7 +197,7 @@ export default function HeroBirds() {
                     x: windowWidth + 450,
                     y: yOffset,
                     visibility: 'visible',
-                    duration: 3.5,
+                    duration: 2.8,
                     delay: 2,
                     ease: 'power1.in',
                     onComplete: () => {
@@ -223,7 +223,7 @@ export default function HeroBirds() {
                     x: -(windowWidth + 450),
                     y: yOffset,
                     visibility: 'visible',
-                    duration: 3.5,
+                    duration: 2.8,
                     delay: 2,
                     ease: 'power1.in',
                     onComplete: () => {
